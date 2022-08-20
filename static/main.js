@@ -1,21 +1,14 @@
 let body = new ELEM(document.body);
 
-class WS extends WebSocket{
-    on(ename,cb){
-        let that = this;
-        this.addEventListener(ename,cb);
-        return {
-            remove:()=>{
-                that.removeEventListener(name,cb);
-            }
-        }
-    }    
-};
+
+body.add(new Chat());
+
+
 
 
 
 //defining some API object
-const API = {
+/*const API = {
     //returns promise
     get(path,content_type){
         return fetch(location.origin+path,{
@@ -46,7 +39,7 @@ const API = {
     postText(path,body){
         return this.post(path,body,'text/plain; charset=UTF-8');
     }
-};
+};*/
 
 
 //test code
@@ -61,7 +54,7 @@ console.log(await r.text());
 */
 
 
-
+/*
 let ws = new WS("ws://"+location.host+"/socket");
 ws.on("open",()=>{
     //p1.setInner("open");
@@ -77,7 +70,7 @@ ws.on("message",(e)=>{
 let sendMessage = function(str){
     ws.send(str);
 }
-
+*/
 
 
 
