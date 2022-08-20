@@ -12,6 +12,9 @@ class WS extends WebSocket{
     }    
 };
 
+
+
+let ws = new WS("ws://"+location.host+"/socket");
 ws.on("open",()=>{
     //p1.setInner("open");
 });
