@@ -14,18 +14,6 @@ class WS extends WebSocket{
 
 
 
-let ws = new WS("ws://"+location.host+"/socket");
-ws.on("open",()=>{
-    //p1.setInner("open");
-});
-
-
-ws.on("message",(e)=>{
-    //p2.setInner(e.data);
-});
-
-
-
 //defining some API object
 const API = {
     //returns promise
@@ -62,7 +50,7 @@ const API = {
 
 
 //test code
-let testblob = new Blob([new Uint8Array([1,1,2,3,5,8])]);
+//let testblob = new Blob([new Uint8Array([1,1,2,3,5,8])]);
 /*
 await API.postBlob("/api/post_buffer",testblob);
 await API.postText("/api/post_string","from client");
@@ -71,6 +59,24 @@ console.log(new Uint8Array(await r.arrayBuffer()));
 let r = await API.get("/api/get_string");
 console.log(await r.text());
 */
+
+
+
+let ws = new WS("ws://"+location.host+"/socket");
+ws.on("open",()=>{
+    //p1.setInner("open");
+});
+
+
+ws.on("message",(e)=>{
+    console.log(e.data);
+    //p2.setInner(e.data);
+});
+
+
+let sendMessage = function(str){
+    ws.send(str);
+}
 
 
 
